@@ -1,2 +1,5 @@
-android_external_wpa_supplicant
+wpa_supplicant
 ===============================
+
+IS05のソースを元にadhocに対応させました。  
+2.3でビルドしてIS03/IS05で使えてます。  
