@@ -22,11 +22,9 @@ ifeq ($(WPA_SUPPLICANT_VERSION),VER_0_5_X)
 LOCAL_PATH := $(call my-dir)
 
 WPA_BUILD_SUPPLICANT := false
-ifneq ($(TARGET_SIMULATOR),true)
-  ifneq ($(BOARD_WPA_SUPPLICANT_DRIVER),)
+ifneq ($(BOARD_WPA_SUPPLICANT_DRIVER),)
     WPA_BUILD_SUPPLICANT := true
     CONFIG_DRIVER_$(BOARD_WPA_SUPPLICANT_DRIVER) = y
-  endif
 endif
 
 include $(LOCAL_PATH)/.config
@@ -662,14 +660,12 @@ endif
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := wpa_cli
-#LOCAL_MODULE_TAGS := debug
-LOCAL_MODULE_TAGS := user
 LOCAL_SHARED_LIBRARIES := libc libcutils
 LOCAL_CFLAGS := $(L_CFLAGS)
 LOCAL_SRC_FILES := $(OBJS_c)
 LOCAL_C_INCLUDES := $(INCLUDES)
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(PRODUCT_OUT)/utilities
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/istweak
 include $(BUILD_EXECUTABLE)
 
 ########################
@@ -686,7 +682,7 @@ LOCAL_CFLAGS := $(L_CFLAGS)
 LOCAL_SRC_FILES := $(OBJS)
 LOCAL_C_INCLUDES := $(INCLUDES)
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(PRODUCT_OUT)/utilities
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/istweak
 include $(BUILD_EXECUTABLE)
 
 ########################
@@ -709,7 +705,7 @@ local_target_dir := $(TARGET_OUT)/etc/wifi
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := wpa_supplicant.conf
-LOCAL_MODULE_TAGS := user
+LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(local_target_dir)
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
